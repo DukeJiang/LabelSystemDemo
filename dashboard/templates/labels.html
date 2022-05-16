@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}
+  Labels Page
+{% endblock %}
+
+{% block content %}
+      <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <!-- Your Columns HERE -->
+                <th scope="col">Label Name</th>
+                <th scope="col">URL Linked To Label</th>
+                <th scope="col">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Your rows inside the table HERE: -->
+            {% for label in labels %}
+                <tr>
+                    <td>{{ label.label_name }}</td>
+                    <td>N/A</td>
+                    <td>
+                        <button class="btn btn-outline btn-success" onclick="window.location.href=
+                                '{{ url_for( 'update_label' , label_id=label.id, user_id=label.owner_id ) }}';">
+                            Update Label
+                        </button>
+                        <button class="btn btn-outline btn-danger" onclick="window.location.href=
+                                '{{ url_for( 'delete_label' , label_id=label.id, user_id=label.owner_id ) }}';">
+                            Delete Label
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

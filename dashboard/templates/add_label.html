@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+    Add Label Page
+{% endblock %}
+
+{% block content %}
+    <body class="text-center">
+    <div class="container">
+        <form method="POST" class="form-register" style="color:white">
+            {{ form.hidden_tag() }}
+            <img style="max-width:400px;width:100%"
+                 src="https://cdn.freelogovectors.net/wp-content/uploads/2018/04/universityofchicago_logo.png" alt="">
+            <h1 class="h3 mb-3 font-weight-normal">
+                Add A Label
+            </h1>
+            <br>
+            {{ form.label_name.label() }}
+            {{ form.label_name(class="form-control", placeholder="Label Name") }}
+
+            <br>
+
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
+        </form>
+    </div>
+    </body>
+{% endblock %}
